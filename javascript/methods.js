@@ -2,6 +2,7 @@
 
 // The slice method, selects part of the array/string, and creates a new array/string.
 
+// This is a test comment for Sean Branch
 var example = "gamergirl";
 // We want to extract gamer from the example string "gamergirl"
 example.slice(0,5); // index+1 for the second parameter here.
