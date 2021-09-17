@@ -214,4 +214,11 @@ console.log(fastfood.lastIndexOf("Pizzahut"));
 console.log(fastfood);
 console.log(fastfood.lastIndexOf('Wendys',2)); // looking backwards, from 2 to 0
 
+// MATH METHODS
+// minimum of an array
+var minimum_cost = Math.min.apply(Math,flight_costs); // get minimum value of an array
+console.log(minimum_cost);
 
+// mimimum of two numbers
+var minimum_two_numbers = Math.min(444,66);
+console.log(minimum_two_numbers);
