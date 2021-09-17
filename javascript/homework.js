@@ -10,28 +10,44 @@ var airline1 = {
     "name": 'European Airline',
     "color": 'blue',
     "planes": 10,
-    "destination": 'Europe'
+    "starting_destination": 'Europe',
+    "final_destination": 'Africa',
+    "number_of_seats": 80,
+    "cost_of_the_flight": 2000,
+    "year_of_the_plane": 2016
 }
 
 var airline2 = {
    "name": 'Airline of the Americas',
     "color": 'red',
     "planes": 12,
-    "destination": 'Americas'
+    "starting_destination": 'American',
+    "final_destination": 'Europe',
+    "number_of_seats": 90,
+    "cost_of_the_flight": 3000,
+    "year_of_the_plane": 2021
 }
 
 var airline3 = {
    "name": 'African Airlines',
     "color": 'yellow',
     "planes": 8,
-    "destination": 'Africa'
+    "starting_destination": 'Africa',
+    "final_destination": 'Asia',
+    "number_of_seats": 90,
+    "cost_of_the_flight": 1600,
+    "year_of_the_plane": 2015
 }
 
 var airline4 = {
    "name": 'Asian Airlines',
     "color": 'green',
     "planes": 14,
-    "destination": 'Asia'
+    "starting_destination": 'Asia',
+    "final_destination": 'Africa',
+    "number_of_seats": 100,
+    "cost_of_the_flight": 500,
+    "year_of_the_plane": 2019
 }
 
 var airlinesCombined = [airline1,airline2,airline3,airline4]; // Array does concatination automatically
@@ -54,6 +70,36 @@ for( var i = 0; i < airlinesCombined.length; i++){
    'destination', airlinesCombined[i]['destination'];
 }
 
+// creation of an array that will contain the cost of the flights
+var flight_costs = [];
+// add code for cheap flight here
+for(var i = 0; i < airlinesCombined.length; i++){
+    // array airlinesCombined , I have this array, how can I access the price of each?
+    //console.log(airlinesCombined[i]['cost_of_the_flight']);
+    flight_costs.push(airlinesCombined[i]['cost_of_the_flight']);
+    // Next question we ask: What is the lowest value?
+}
+console.log(flight_costs); // all values of the flight costs are here stored as integer values
+
+// Finding the  minimum using the math object
+// It is built inside JavaScript
+
+// minimum of an array
+var minimum_cost = Math.min.apply(Math,flight_costs); // get minimum value of an array
+console.log(minimum_cost);
+
+// mimimum of two numbers
+var minimum_two_numbers = Math.min(444,66);
+console.log("Min two numbers",minimum_two_numbers);
+
+// Print out flight details of the cheapest flight
+
+for(var i = 0; i < airlinesCombined.length; i++){
+    if(airlinesCombined[i]['cost_of_the_flight'] == minimum_cost){
+        // When the price of the flight is equal to the minimum value of the flights, you print out the flight info
+        console.log("cheapest flight info: ",airlinesCombined[i]);
+    }
+}
 
 // Practice done by Sean
 var ages = [12,13,14,15,16,17,18,19,20];
