@@ -113,3 +113,60 @@ for( var i = 0; i < age.length; i++){
 }
 
 // end of exercise
+
+restaurantCombined = [];
+
+ var restaurant1 = {
+     'cuisine': 'italian',
+     'location': 'St.Leonard',
+     'capacity': 200,
+     'price': 80
+ }
+
+ var restaurant2 = {
+    'cuisine': 'chinese',
+    'location': 'Montreal',
+    'capacity': 400,
+    'price': 50
+}
+
+var restaurant3 = {
+    'cuisine': 'spanish',
+    'location': 'Montreal',
+    'capacity': 100,
+    'price': 100
+}
+
+var restaurant4 = {
+    'cuisine': 'french',
+    'location': 'Old Port',
+    'capacity': 90,
+    'price': 100
+}
+
+var restaurant5 = {
+    'cuisine': 'japanese',
+    'location': 'westmount',
+    'capacity': 20,
+    'price': 110
+}
+
+
+var restaurantCombined = [restaurant1,restaurant2,restaurant3,restaurant4,restaurant5];
+
+// concatenation, condition exercise
+var restaurant_concatination = [];
+
+restaurant_concatination += restaurantCombined;
+
+console.log(restaurant_concatination);
+
+location = 'montreal';
+
+ for(var i = 0; i < restaurant_concatination.length; i++){
+     if (restaurant_concatination[i]['location'] == location){ 
+         console.log('hello how are you');
+     }
+  }
+ 
+
