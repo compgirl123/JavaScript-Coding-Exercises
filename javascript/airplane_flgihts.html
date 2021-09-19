@@ -1,0 +1,49 @@
+
+ <!DOCTYPE html>	
+
+ <html>
+     <head>
+ 
+         <!-- boostrap css -->
+         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap-grid.min.css">-->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     </head>
+     <body>
+         <section class="about" style="background-color: #fafafafa; padding: 80px 20px;">
+             <div style="margin-right: auto; margin-left: auto; max-width: 1020px;">
+                 <div class="accordion" id="accordionExample">
+                     <div class="accordion-item">
+                       <h2 class="accordion-header" id="headingOne">
+                         
+                         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="start_destination">
+                             <option value="Please Select Start Destination" selected>Start Destination</option>
+                             <option value="Africa" id="Africa">Africa</option>
+                             <option value="Asia" id="Asia">Asia</option>
+                             <option value="Europe" id="Europe">Europe</option>
+                           </select>
+                           
+                           <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="end_destination">
+                             <option selected>Final Destination</option>
+                             <option value="Africa" id="Africa">Africa</option>
+                             <option value="Asia" id="Asia">Asia</option>
+                             <option value="Europe" id="Europe">Europe</option>
+                           </select>
+                           <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Show Available Flights
+                          </button>
+                       </h2>
+                       <h1 id="testa"></h1>
+                       <div id="collapseOne">
+                       </div>
+                       <div id="collapseTwo">
+                       </div>
+                     </div>
+             </div>
+         </section>
+         <!-- boostrap js -->
+     </body>
+     <script src="homework.js"></script>
+ </html>
+ 

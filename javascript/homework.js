@@ -155,18 +155,31 @@ var restaurant5 = {
 var restaurantCombined = [restaurant1,restaurant2,restaurant3,restaurant4,restaurant5];
 
 // concatenation, condition exercise
-var restaurant_concatination = [];
 
-restaurant_concatination += restaurantCombined;
+function getStartDestination(){
+    var getStart = document.getElementById("start_destination").value;
+    //alert(getStart);
+    //collapseOne -> id where we want to display the result, aka what is selected and what it returns
+    document.getElementById("collapseOne").innerHTML = "Start Destination: "+ getStart;// innerHTML means add a text based value of the result value.
+   // alert(getStart);
+}
 
-console.log(restaurant_concatination);
+// Jquery
+$(document).ready(function(){
+    $('button').click(function(){
+       // alert("hi");
+        //$('.testa').show();
+        getStartDestination();
+    })
+})
 
-location = 'montreal';
+function getEndDestination(){
+    var getEnd = document.getElementById("end_destination").value;
+    document.getElementById('collapseTwo').innerHTML = 'End Destination: ' + getEnd;
+}
 
- for(var i = 0; i < restaurant_concatination.length; i++){
-     if (restaurant_concatination[i]['location'] == location){ 
-         console.log('hello how are you');
-     }
-  }
- 
-
+$(document).ready(function(){
+    $('button').click(function(){
+        getEndDestination();
+    })
+})
