@@ -21,7 +21,7 @@ var airline2 = {
    "name": 'Airline of the Americas',
     "color": 'red',
     "planes": 12,
-    "starting_destination": 'American',
+    "starting_destination": 'America',
     "final_destination": 'Europe',
     "number_of_seats": 90,
     "cost_of_the_flight": 3000,
@@ -101,72 +101,76 @@ for(var i = 0; i < airlinesCombined.length; i++){
     }
 }
 
-// Practice done by Sean
-var ages = [12,13,14,15,16,17,18,19,20];
 
-var age = '';
+// insert into html
 
-for( var i = 0; i < age.length; i++){
-  function checkAge(age){
-     return age >= 18;
-  }
+function getStartDestination(){
+    var getStart = document.getElementById("start_destination").value;
+    //alert(getStart);
+    //collapseOne -> id where we want to display the result, aka what is selected and what it returns
+    document.getElementById("startDestination").innerHTML = getStart;// innerHTML means add a text based value of the result value.
+   // alert(getStart);
+   return getStart;
 }
 
-// end of exercise
-
-restaurantCombined = [];
-
- var restaurant1 = {
-     'cuisine': 'italian',
-     'location': 'St.Leonard',
-     'capacity': 200,
-     'price': 80
- }
-
- var restaurant2 = {
-    'cuisine': 'chinese',
-    'location': 'Montreal',
-    'capacity': 400,
-    'price': 50
+function getEndDestination(){
+    var getEnd = document.getElementById("end_destination").value;
+    document.getElementById('endDestination').innerHTML = getEnd;
+    return getEnd;
 }
 
-var restaurant3 = {
-    'cuisine': 'spanish',
-    'location': 'Montreal',
-    'capacity': 100,
-    'price': 100
+function flightDescription(){
+    //airlinesCombined // search this array for matching values of what was selected in the select box.
+    var get_start_destination_selected = getStartDestination();
+    var get_end_destination_selected = getEndDestination();
+    for (var i = 0; i < airlinesCombined.length; i++){
+       if(airlinesCombined[i].starting_destination == get_start_destination_selected && 
+        airlinesCombined[i].final_destination == get_end_destination_selected)
+        {
+            console.log(airlinesCombined[i].color);
+            document.getElementById("name").innerHTML= airlinesCombined[i].name;
+            document.getElementById("color").innerHTML= airlinesCombined[i].color;
+            document.getElementById("plane").innerHTML= airlinesCombined[i].planes;
+            document.getElementById("number_of_seats").innerHTML= airlinesCombined[i].number_of_seats;
+            document.getElementById("cost_of_the_flight").innerHTML= airlinesCombined[i].cost_of_the_flight;
+            document.getElementById("year_of_the_plane").innerHTML= airlinesCombined[i].year_of_the_plane;
+        }
+    }
 }
 
-var restaurant4 = {
-    'cuisine': 'french',
-    'location': 'Old Port',
-    'capacity': 90,
-    'price': 100
+// "name": 'Asian Airlines',
+// "color": 'green',
+// "planes": 14,
+// "starting_destination": 'Asia',
+// "final_destination": 'Africa',
+// "number_of_seats": 100,
+// "cost_of_the_flight": 500,
+// "year_of_the_plane": 2019
+
+// JQuery
+$(document).ready(function(){
+    $('button').click(function(){
+        getStartDestination();
+        getEndDestination();
+        getResultingAirlines();
+        flightDescription();
+    })
+})
+
+function getResultingAirlines(){
+    //airlinesCombined -> do a search on the airlinesCombined to get available flgihts
+    var airlineDestination = [];
+    var start_destination =  getStartDestination();
+    var end_destination = getEndDestination();
+    for(var i = 0; i < airlinesCombined.length; i++){
+        if(airlinesCombined[i].starting_destination == start_destination && airlinesCombined[i].final_destination == end_destination){
+            //alert("EQUAL " + start_destination + "EQual " + end_destination);
+            // Show the flight information here
+            document.getElementById("startDestination").innerHTML = airlinesCombined[i].name;//+airlinesCombined[i]
+            //color+airlinesCombined[i].starting_destination+airlinesCombined[i].end_destination;
+        }
+        else{
+            document.getElementById("startDestination").innerHTML = "No Flights Available";
+        }
+    }
 }
-
-var restaurant5 = {
-    'cuisine': 'japanese',
-    'location': 'westmount',
-    'capacity': 20,
-    'price': 110
-}
-
-
-var restaurantCombined = [restaurant1,restaurant2,restaurant3,restaurant4,restaurant5];
-
-// concatenation, condition exercise
-var restaurant_concatination = [];
-
-restaurant_concatination += restaurantCombined;
-
-console.log(restaurant_concatination);
-
-location = 'montreal';
-
- for(var i = 0; i < restaurant_concatination.length; i++){
-     if (restaurant_concatination[i]['location'] == location){ 
-         console.log('hello how are you');
-     }
-  }
- 
-
