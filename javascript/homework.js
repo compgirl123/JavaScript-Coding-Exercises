@@ -71,35 +71,35 @@ for( var i = 0; i < airlinesCombined.length; i++){
 }
 
 // creation of an array that will contain the cost of the flights
-var flight_costs = [];
+// var flight_costs = [];
 // add code for cheap flight here
-for(var i = 0; i < airlinesCombined.length; i++){
-    // array airlinesCombined , I have this array, how can I access the price of each?
-    //console.log(airlinesCombined[i]['cost_of_the_flight']);
-    flight_costs.push(airlinesCombined[i]['cost_of_the_flight']);
-    // Next question we ask: What is the lowest value?
-}
-console.log(flight_costs); // all values of the flight costs are here stored as integer values
+// for(var i = 0; i < airlinesCombined.length; i++){
+//     // array airlinesCombined , I have this array, how can I access the price of each?
+//     //console.log(airlinesCombined[i]['cost_of_the_flight']);
+//     flight_costs.push(airlinesCombined[i]['cost_of_the_flight']);
+//     // Next question we ask: What is the lowest value?
+// }
+// console.log(flight_costs); // all values of the flight costs are here stored as integer values
 
-// Finding the  minimum using the math object
-// It is built inside JavaScript
+// // Finding the  minimum using the math object
+// // It is built inside JavaScript
 
-// minimum of an array
-var minimum_cost = Math.min.apply(Math,flight_costs); // get minimum value of an array
-console.log(minimum_cost);
+// // minimum of an array
+// var minimum_cost = Math.min.apply(Math,flight_costs); // get minimum value of an array
+// console.log(minimum_cost);
 
-// mimimum of two numbers
-var minimum_two_numbers = Math.min(444,66);
-console.log("Min two numbers",minimum_two_numbers);
+// // mimimum of two numbers
+// var minimum_two_numbers = Math.min(444,66);
+// console.log("Min two numbers",minimum_two_numbers);
 
-// Print out flight details of the cheapest flight
+// // Print out flight details of the cheapest flight
 
-for(var i = 0; i < airlinesCombined.length; i++){
-    if(airlinesCombined[i]['cost_of_the_flight'] == minimum_cost){
-        // When the price of the flight is equal to the minimum value of the flights, you print out the flight info
-        console.log("cheapest flight info: ",airlinesCombined[i]);
-    }
-}
+// for(var i = 0; i < airlinesCombined.length; i++){
+//     if(airlinesCombined[i]['cost_of_the_flight'] == minimum_cost){
+//         // When the price of the flight is equal to the minimum value of the flights, you print out the flight info
+//         console.log("cheapest flight info: ",airlinesCombined[i]);
+//     }
+// }
 
 
 // insert into html
@@ -152,12 +152,12 @@ $(document).ready(function(){
     $('button').click(function(){
         getStartDestination();
         getEndDestination();
-        getResultingAirlines();
+        // getResultingAirlines();
         flightDescription();
     })
 })
 
-function getResultingAirlines(){
+function getResultingAirlines(){ /* WHY DOES THIS NEED TO BE A SEPARATE FUNCTION? */
     //airlinesCombined -> do a search on the airlinesCombined to get available flgihts
     var airlineDestination = [];
     var start_destination =  getStartDestination();
@@ -174,3 +174,59 @@ function getResultingAirlines(){
         }
     }
 }
+
+// CHEAPESTFLIGHT
+
+var pushAirlineCosts = [];
+
+for(var i = 0; i < airlinesCombined.length; i++){
+    pushAirlineCosts.push(airlinesCombined[i]['cost_of_the_flight']);
+}
+
+function getlowestCost(){
+    var getMin = Math.min.apply(Math,pushAirlineCosts);
+    console.log(getMin);
+    for(var x = 0; x < airlinesCombined.length; x++){
+        if(pushAirlineCosts[x] == getMin){
+            document.getElementById("get_lowest_number").innerHTML= " the lowest number is" + pushAirlineCosts[x];
+            document.body.style.backgroundColor = "green";
+        }
+    }
+}
+
+function getHTMLofCode(){
+    var html_output = document.body.innerHTML;
+    console.log(html_output);
+    //document.body.innerHTML = "<h1>compsci</h1>";
+}
+
+function addHTMLElementtoPage(){
+    // Adding a new html element to the page using JavaScript instead of html 
+    var newheader = document.createElement("H1"); // <h1></h1> in HTML
+    var text = document.createTextNode("This is the cheapest flight"); // add text description inside <h1></h1> tag.
+    newheader.appendChild(text); // add the text to the <h1></h1>
+    document.body.appendChild(newheader);
+}
+
+function inputEvent(){
+    var input = document.querySelector('input');
+    var log = document.getElementById('value');
+
+    input.addEventListener('input',newValue);
+}
+
+function newValue(e){
+    log.textcontent = e.target.value;
+    alert(e.target.value);
+}
+
+inputEvent();
+newValue(e);
+
+$('.btn-success').on('click', function(){
+    getlowestCost();
+    //getHTMLofCode();
+    addHTMLElementtoPage();
+})
+
+
