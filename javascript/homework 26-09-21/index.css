@@ -1,0 +1,9 @@
+section{
+    padding: 80px 40px;
+}
+
+.container{
+    max-width: 1020px;
+    margin-right: auto;
+    margin-left: auto;
+}
